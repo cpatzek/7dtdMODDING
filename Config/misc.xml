@@ -4,7 +4,7 @@
    <!-- For items with weapon hold type=="X" we have a ray cast delay of Y -->
     <animation>
         <hold_type id="0" newmodel="false" ray_cast="0.16"  unholster="0.2" />        <!-- 0 hand player -->
-        <hold_type id="1" newmodel="false" ray_cast="0.16" holster="0" unholster="0.2" two_handed="true" />        <!-- 1 pistol -->
+        <hold_type id="1" newmodel="false" ray_cast="0.16" holster="0" unholster="0.2" two_handed="false" />        <!-- 1 pistol -->
         <hold_type id="2" newmodel="false" ray_cast="0.40" holster="0" unholster="0.2" />        <!-- 2 clubs -->
         <hold_type id="3" newmodel="false" ray_cast="2.00" holster="0" unholster="0.2" />        <!-- 3 jars -->
         <hold_type id="4" newmodel="false" ray_cast="0.64" holster="0" unholster="0.2" two_handed="true" />        <!-- 4 pickaxe -->
