@@ -2640,8 +2640,7 @@ group desc for stuff like metal siding
 	<property name="FallDamage" value="false"/>
 	<!-- WILL NOT WORK WITH GORE ANY MORE
 	<property name="UpgradeRated.ToBlock" value="air"/--> <!-- 1=min, 15=max NOTE: 1 tick is approximately a 1 to 2 minute real-time interval. -->
-	<!-- property name="UpgradeRated.Rate" value="15"/>
-	-->
+	<!-- property name="UpgradeRated.Rate" value="15"/>-->
 	<property name="Density" value="0.1"/>
 	<property name="HeatMapStrength" value="4.0"/>
 	<!-- HeatMapTime: Every "bit" of heat is like a game object. It DECAYS in x seconds. (scales with game time)
