@@ -17,21 +17,26 @@ Gazz.
 ---------------------------------------------------------------------
 ---------------------------------------------------------------------
 
-Property:  IsDeveloper  (mostly blocks.xml + items.xml)
+Property:  IsDeveloper  (mostly blocks.xml + items.xml) ... is now obsolete.
 
-<property name="IsDeveloper" value="true" />
+Enter Property:
 
-There is a "Developer" button on the creative menu.
+"CreativeMode", values: "Player,Dev,None"
+Technically "All" is a value but that's the default so why bother?
 
-By default it is off.
-When it is off you do not see any blocks / items that have this flag set.
+What this does is that the creative menu can display different sets of blocks in "player" and "dev/level builder" view mode.
 
-These blocks or items are ones you SHOULD NOT USE unless you know exactly what you are doing.
+If you turn on the "dev button" on the creative menu you always see both "dev" and "player".
 
-In most cases these are master blocks / items that provide default values for "real" blocks and items that are extended from them.
+With this button OFF:
 
-The flag itself is not inherited by "Extends" so all child blocks / items remain visible.
+- In the editor you see "all" and "dev" items.
+- In game mode you see "all" and "player" items.
 
+"None" means no display ever. Like for master blocks that are not to be used directly.
+
+
+The property itself is not inherited by "Extends" so all child blocks / items remain visible.
 
 Extended items do NOT inherit auto-calculated weight.
 Only items with actual recipes have it.
@@ -627,7 +632,7 @@ Resource value x 1.2
 Common tool required. Cooking pot or grill - essentially free with a forge so does not stack with that bonus.
 Resource value x 1.2
 
-Rare tool required. Calipers, beaker...
+Rare tool required. Crucible, beaker...
 Resource value x 1.5
 
 Farming required. Not hard but time-consuming.
@@ -1374,7 +1379,7 @@ Use of "Extends" is not supported for recipes.
 
 Usable craft areas ( = block name of the crafting station) and tools:
 
-forge		[anvil | calipers | toolAndDieSet]
+forge		[anvil | forgeCrucible | toolAndDieSet]
 campfire	[cookingPot | cookingGrill | beaker]
 cementMixer
 backpack ?
@@ -1982,7 +1987,7 @@ Imposters / Distant POI
 
 <block id="bbbbbb" name="woodFrameWedgeID">
 	<property name="Extends" value="woodFrameMaster" />
-	<property name="IsDeveloper" value="true"/> <!-- DO NOT merge to console -->
+	<property name="CreativeMode" value="Player"/>
 	<property name="Shape" value="New" />
 	<property name="Model" value="wedge60Model" /> <property name="Place" value="TowardsPlacerInverted" />
 	<property name="CanPickup" value="true" />
@@ -1991,6 +1996,7 @@ Imposters / Distant POI
 
 <block id="bbbbbb" name="solidWoodFrameWedgeID">
 	<property name="Extends" value="woodFrameWedgeID" />
+	<property name="CreativeMode" value="Dev"/>
 	<property name="CustomIcon" value="woodFrameWedgeID" />
 	<property name="CanPickup" value="false" />
 </block>
@@ -2021,7 +2027,7 @@ Imposters / Distant POI
 
 <block id="bbbbbb" name="scrapIronFrameWedgeID">
 	<property name="Extends" value="scrapIronFrameMaster" />
-	<property name="IsDeveloper" value="true"/> <!-- DO NOT merge to console -->
+	<property name="CreativeMode" value="Player"/>
 	<property name="Shape" value="New" />
 	<property name="Model" value="wedge60Model" /> <property name="Place" value="TowardsPlacerInverted" />
 	<property name="CanPickup" value="true" />
@@ -2030,6 +2036,7 @@ Imposters / Distant POI
 
 <block id="bbbbbb" name="solidScrapIronFrameWedgeID">
 	<property name="Extends" value="scrapIronFrameWedgeID" />
+	<property name="CreativeMode" value="Dev"/>
 	<property name="CustomIcon" value="scrapIronFrameWedgeID" />
 	<property name="CanPickup" value="false" />
 </block>
@@ -2052,8 +2059,7 @@ Imposters / Distant POI
 
 <block id="bbbbbb" name="pouredConcreteWedgeID">
 	<property name="Extends" value="pouredConcreteMaster" />
-	<property name="CustomIcon" value="rConcreteWedgeID" />
-	<property name="IsDeveloper" value="true" />
+	<property name="CreativeMode" value="Player"/>
 	<property name="Shape" value="New" />
 	<property name="Model" value="wedge60Model" /> <property name="Place" value="TowardsPlacerInverted" />
 	<property name="UpgradeRated.ToBlock" value="concreteWedgeID" />
@@ -2063,13 +2069,13 @@ Imposters / Distant POI
 	<property name="Extends" value="concreteMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="wedge60Model" /> <property name="Place" value="TowardsPlacerInverted" />
-	<property class="UpgradeBlock"> <property name="ToBlock" value="pouredConcreteWedgeID" /> </property>
+	<property class="UpgradeBlock"> <property name="ToBlock" value="pouredRConcreteWedgeID" /> </property>
 </block>
 
 <block id="bbbbbb" name="pouredRConcreteWedgeID">
 	<property name="Extends" value="pouredRConcreteMaster" />
-	<property name="CustomIcon" value="rConcreteWedgeID" />
-	<property name="IsDeveloper" value="true" />
+	<property name="CreativeMode" value="None"/>
+	<property name="CustomIcon" value="pouredConcreteWedgeID" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="wedge60Model" /> <property name="Place" value="TowardsPlacerInverted" />
 	<property name="UpgradeRated.ToBlock" value="rConcreteWedgeID" />
@@ -2106,13 +2112,13 @@ Imposters / Distant POI
 	<property class="UpgradeBlock">	<property name="ToBlock" value="pouredConcreteWedgeID" /> </property>
 </block>
 
-<block id="bbbbbb" name="cobblestoneFrameWedgeID">
-	<property name="Extends" value="cobblestoneFrameMaster" />
-	<property name="IsDeveloper" value="true"/> <!-- DO NOT merge to console -->
-	<property name="Shape" value="New" />
+<block id="bbbbbb" name="flagstoneWedgeID">
+	<property name="Extends" value="flagstoneMaster"/>
+	<property name="Shape" value="New"/>
 	<property name="Model" value="wedge60Model" /> <property name="Place" value="TowardsPlacerInverted" />
-	<property class="UpgradeBlock"> <property name="ToBlock" value="cobblestoneWedgeID" />	</property>
+	<property class="UpgradeBlock"> <property name="ToBlock" value="cobblestoneWedgeID"/> </property>
 </block>
+
 
 <block id="bbbbbb" name="cobblestoneWedgeID">
 	<property name="Extends" value="cobblestoneMaster" />
@@ -2121,38 +2127,30 @@ Imposters / Distant POI
 	<property class="UpgradeBlock"> <property name="ToBlock" value="pouredConcreteWedgeID" />	</property>
 </block>
 
+-->
 
 
 
-
-
-
-
+<!--
 
 <recipe name="woodFrameWedgeID" count="1">
 	<ingredient name="wood" count="5"/>
 </recipe>
-use one or the other!
-<recipe name="woodWedgeID" count="1">
-	<ingredient name="wood" count="10"/>
-</recipe>
+	ALTERNATIVE - use one or the other!
+	<recipe name="woodWedgeID" count="1">
+		<ingredient name="wood" count="10"/>
+	</recipe>
 
 <recipe name="scrapIronFrameWedgeID" count="1">
 	<ingredient name="scrapIron" count="15"/>
 </recipe>
-use one or the other!
-<recipe name="scrapIronWedgeID" count="1">
-	<ingredient name="scrapIron" count="40"/>
-</recipe>
+	ALTERNATIVE - use one or the other!
+	<recipe name="scrapIronWedgeID" count="1">
+		<ingredient name="scrapIron" count="40"/>
+	</recipe>
 
 <recipe name="pouredConcreteWedgeID" count="1">
 	<ingredient name="concreteMix" count="10"/>
-</recipe>
-
-<recipe name="adobeWedgeID" count="1">
-	<ingredient name="clayLump" count="6"/>
-	<ingredient name="crushedSand" count="6"/>
-	<ingredient name="rockSmall" count="3"/>
 </recipe>
 
 <recipe name="brickWedgeID" count="1" craft_area="forge" material_based="true">
@@ -2160,15 +2158,8 @@ use one or the other!
 	<ingredient name="unit_clay" count="60"/>
 </recipe>
 
-<recipe name="cobblestoneFrameWedgeID" count="1">
-	<ingredient name="wood" count="5"/>
-	<ingredient name="yuccaFibers" count="1"/>
-</recipe>
-use one or the other!
-<recipe name="cobblestoneWedgeID" count="1">
-	<ingredient name="cobblestones" count="10"/>
-	<ingredient name="wood" count="5"/>
-	<ingredient name="yuccaFibers" count="1"/>
+<recipe name="flagstoneWedgeID" count="1">
+	<ingredient name="cobblestones" count="3"/>
 </recipe>
 
 -->
